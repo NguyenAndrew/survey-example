@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 let canUseDOM = !!(
   (typeof window !== 'undefined' &&
-  window.document && window.document.createElement)
+    window.document && window.document.createElement)
 );
 
 let logo = '';
@@ -13,6 +14,22 @@ if (canUseDOM) {
 }
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      'health': ''
+    };
+  }
+
+  componentDidMount() {
+    axios.get('/health').then(res => {
+      this.setState({ "health": res.data });
+    }).catch((err) => {
+      console.log('I am the one who knocks!');
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -27,7 +44,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            {this.state.health}
           </a>
         </header>
       </div>
