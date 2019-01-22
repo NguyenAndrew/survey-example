@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
+    "start:nodemon": "nodemon src/server.js",
     "test": "npx babel-node --presets=@babel/preset-env node_modules/cucumber/bin/cucumber-js test/features"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "cucumber": "^5.1.0",
+    "nodemon": "^1.18.9",
     "supertest": "^3.4.1"
   }
 }
