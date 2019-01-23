@@ -1,0 +1,17 @@
+{
+  "name": "full_stack_scripts",
+  "version": "0.1.0",
+  "description": "Used to run scripts in Front_End and Back_end",
+  "scripts": {
+    "install:all": "npm install && concurrently \"cd ../Back_End/Node/ && npm install\" \"cd ../Front_End/React && npm install\"",
+    "dev:all": "concurrently \"cd ../Back_End/Node/ && npm run start:nodemon\" \"cd ../Front_End/React && npm run start\"",
+    "test:all": "concurrently \"cd ../Back_End/Node/ && npm test \" \"cd ../Front_End/React && npm test\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
