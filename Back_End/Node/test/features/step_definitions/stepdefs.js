@@ -6,8 +6,8 @@ Given('an Express application called app', function () {
     this.app = require('../../../src/app');
 });
 
-When('I call the default route on app', function () {
-    return request(this.app).get('/').then((response) => {
+When('I call the health route on app', function () {
+    return request(this.app).get('/health').then((response) => {
         this.result = response.text;
         this.status = response.status;
     });
