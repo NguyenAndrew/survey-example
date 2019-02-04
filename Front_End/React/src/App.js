@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
-
 import * as Survey from 'survey-react';
-import 'survey-react/survey.css';
-
-import 'bootstrap/dist/css/bootstrap.css'
-import './style.css';
-
 import json from './survey.json';
+import 'survey-react/survey.css';
+import Axios from 'axios';
 
 class App extends Component {
-  componentWillMount() {
-    // Survey.Survey.cssType = "bootstrap";
-  }
-
   render() {
-    var model = new Survey.Model(json);
+    const model = new Survey.Model(json);
 
     model
       .onComplete
       .add(function (result) {
-        console.log(JSON.stringify(result.data));
+        Axios.post('/survey', result.data);
       });
 
     return (
